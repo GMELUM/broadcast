@@ -1,9 +1,8 @@
 name: Build and Release
 
 on:
-  release:
-    types:
-    - created
+    release:
+      types: [published]
 
 jobs:
   build:
@@ -29,7 +28,7 @@ jobs:
       uses: actions/upload-release-asset@v1
       with:
         upload_url: ${{ github.event.release.upload_url }}
-        asset_path: broadcast_linux
+        asset_path: dist/broadcast_linux
         asset_name: broadcast-linux-amd64
         asset_content_type: application/octet-stream
 
