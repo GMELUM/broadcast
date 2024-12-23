@@ -28,8 +28,8 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: |
-            dist/broadcast-linux-amd64
-            dist/broadcast-darwin-amd64
-            dist/broadcast-windows-amd64.exe
+            dist/broadcast_linux
+            dist/broadcast_darwin
+            dist/broadcast_windows.exe
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
