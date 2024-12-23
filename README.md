@@ -6,17 +6,17 @@
 
 - **Linux**:
   ```bash
-  GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -o dist/broadcast .
+  CGO_ENABLED=1 GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -o dist/broadcast .
   ```
 
 - **macOS**:
   ```bash
-  GOOS=darwin GOARCH=amd64 go build -ldflags="-s -w" -o dist/broadcast .
+  CGO_ENABLED=1 GOOS=darwin GOARCH=amd64 go build -ldflags="-s -w" -o dist/broadcast .
   ```
 
 - **Windows**:
   ```bash
-  GOOS=windows GOARCH=amd64 go build -ldflags="-s -w" -o dist/broadcast.exe .
+  CGO_ENABLED=1 GOOS=windows GOARCH=amd64 go build -ldflags="-s -w" -o dist/broadcast.exe .
   ```
 
 Компиляция создаст исполняемый файл в директории `dist`.
