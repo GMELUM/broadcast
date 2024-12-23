@@ -26,6 +26,8 @@ jobs:
         GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -o dist/broadcast-linux-amd64 .
         GOOS=darwin GOARCH=amd64 go build -ldflags="-s -w" -o dist/broadcast-darwin-amd64 .
         GOOS=windows GOARCH=amd64 go build -ldflags="-s -w" -o dist/broadcast-windows-amd64.exe
+      env:
+        CGO_ENABLED: 1
 
     - name: Create Release
       uses: softprops/action-gh-release@v1
@@ -36,4 +38,3 @@ jobs:
           dist/broadcast-windows-amd64.exe
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        CGO_ENABLED: 1
