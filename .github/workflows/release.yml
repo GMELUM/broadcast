@@ -11,9 +11,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    container:
-        image: docker.elastic.co/beats-dev/golang-crossbuild:1.22.3-main-debian12
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -26,7 +23,6 @@ jobs:
     - name: Build binaries
       run: |
         GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -o broadcast-linux-amd64 .
-        GOOS=windows GOARCH=amd64 go build -ldflags="-s -w" -o broadcast-windows-amd64.exe
       env:
         CGO_ENABLED: 1
 
@@ -35,6 +31,5 @@ jobs:
       with:
         files: |
           broadcast-linux-amd64
-          broadcast-windows-amd64.exe
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
